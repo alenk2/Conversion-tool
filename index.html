@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion tool</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #36454f;
+        }
+
+        p {
+            color: white;
+            padding: 5px;
+        }
+
+        .lengthGroup, .weightGroup, .tempGroup {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+<script src="script.js"></script>
+<header class="p-3 bg-dark text-white">
+    <h1>Conversion tool</h1>
+</header>
+<div class="container pt-4 bg-light vh-100">
+    <div class="d-flex justify-content-center align-items-center flex-column">
+        <h5>Value:</h5>
+        <input type="text" class="valueInput form-control w-25">
+
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-3">
+        <button id="length" type="button" class="btn btn-dark me-1">Length</button>
+        <button id="weight" type="button" class="btn btn-dark me-1">Weight</button>
+        <button id="temp" type="button" class="btn btn-dark">Temperature</button>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-2">
+        <div class="lengthGroup btn-group" role="group" aria-label="length button group">
+            <input type="radio" class="btn-check" name="btnradio" id="m">
+            <label class="btn btn-outline-dark" for="m">Meter</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="mm">
+            <label class="btn btn-outline-dark" for="mm">Milimeter</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="km">
+            <label class="btn btn-outline-dark" for="km">Kilometer</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="cm">
+            <label class="btn btn-outline-dark" for="cm">Centimeter</label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="weightGroup btn-group" role="group" aria-label="length button group">
+            <input type="radio" class="btn-check" name="btnradio" id="g">
+            <label class="btn btn-outline-dark" for="g">Gram</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="kg">
+            <label class="btn btn-outline-dark" for="kg">Kilogram</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="mg">
+            <label class="btn btn-outline-dark" for="mg">Miligram</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="t">
+            <label class="btn btn-outline-dark" for="t">Tonne</label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="tempGroup btn-group" role="group" aria-label="length button group">
+            <input type="radio" class="btn-check" name="btnradio" id="c">
+            <label class="btn btn-outline-dark" for="c">Celsius</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="f">
+            <label class="btn btn-outline-dark" for="f">Fahrenheit</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="k">
+            <label class="btn btn-outline-dark" for="k">Kelvin</label>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center flex-column mt-2">
+        <div class="lengthGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Meter:</p>
+            <p class="outputField" id="mtr"></p>
+        </div>
+        <div class="lengthGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Milimeter:</p>
+            <p class="outputField" id="mmtr"></p>
+        </div>
+        <div class="lengthGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Kilometer:</p>
+            <p class="outputField" id="kmtr"></p>
+        </div>
+        <div class="lengthGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Centimeter:</p>
+            <p class="outputField" id="cmtr"></p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center flex-column">
+        <div class="weightGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Gram:</p>
+            <p class="outputField" id="grm"></p>
+        </div>
+        <div class="weightGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Kilogram:</p>
+            <p class="outputField" id="kgrm"></p>
+        </div>
+        <div class="weightGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Milligram:</p>
+            <p class="outputField" id="mgrm"></p>
+        </div>
+        <div class="weightGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Tonne:</p>
+            <p class="outputField" id="tn"></p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center flex-column">
+        <div class="tempGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Celsius:</p>
+            <p class="outputField" id="cel"></p>
+        </div>
+        <div class="tempGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Fahrenheit:</p>
+            <p class="outputField" id="fah"></p>
+        </div>
+        <div class="tempGroup bg-dark mb-2" style="width: 200px; height: 100px; border-radius: 5px;">
+            <p>Kelvin:</p>
+            <p class="outputField" id="kel"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
